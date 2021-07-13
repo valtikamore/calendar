@@ -1,5 +1,5 @@
 import moment from 'moment'
-import './styles.scss'
+import '../Calendar.module.scss'
 export const Day = ({currentDate, date, startDate, endDate, onClick}) => {
     let className = [];
 

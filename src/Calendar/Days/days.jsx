@@ -1,17 +1,18 @@
 import {Day} from "./day";
-import './styles.scss'
+import styles from './days.module.scss'
 import moment from 'moment'
 import {useEffect, useState} from "react";
-
 moment.lang("en-US")
 
 const format = "MM-DD dddd"
 
 export const Days = ({date, startDate, endDate, onClick}) => {
-
-    let labels = moment.weekdaysShort();
     const [dates, setDates] = useState([]);
 
+    useEffect(() => {
+        console.log('useEffect => ', date)
+        getCalendar(date)
+    }, [date])
 
     const getWeek = (startDate) => {
         let res = [];
@@ -20,11 +21,6 @@ export const Days = ({date, startDate, endDate, onClick}) => {
         }
         return res;
     }
-
-    useEffect(() => {
-        console.log('useEffect => ', date)
-        getCalendar(date)
-    }, [date])
 
     const getCalendar = (date = moment()) => {
         const firstDayDate = moment(date).startOf('month');
@@ -51,15 +47,16 @@ export const Days = ({date, startDate, endDate, onClick}) => {
         setDates(res);
         console.log(res.map(d => d.format(format)))
     };
+    let labels = moment.weekdaysShort();
 
     return (
-        <nav className="calendar--days">
-            <div className='labels--block'>
+        <div className={styles.calendarBody}>
+            <div className={styles.labels}>
                 {labels.map(day => {
-                    return <span key={day} className='label'>{day}</span>
+                    return <span key={day} className={styles.label}>{day}</span>
                 })}
             </div>
-            <div className='dates--block'>
+            <div className={styles.dates}>
                 {dates.map(d => (
                     <Day
                         key={d.format('DD MM YYYY')}
@@ -72,6 +69,6 @@ export const Days = ({date, startDate, endDate, onClick}) => {
                 ))}
             </div>
 
-        </nav>
+        </div>
     );
 };

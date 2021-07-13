@@ -1,8 +1,8 @@
-import {Heading} from "./header";
-import {Days} from "./days";
+import {Heading} from "./Header/header";
+import {Days} from "./Days/days";
 import moment from 'moment'
 import React from 'react'
-import './styles.scss'
+import styles from './Calendar.module.scss'
 
 export class Calendar extends React.Component {
     constructor(props) {
@@ -51,13 +51,17 @@ export class Calendar extends React.Component {
 
     render() {
         const {date, startDate, endDate} = this.state;
-
         return (
-            <div className="calendar">
-                <Heading date={date} changeMonth={(month) => this.changeMonth(month)} resetDate={() => this.resetDate()} />
+                <div className={styles.calendar}>
+                    <Heading date={date} changeMonth={(month) => this.changeMonth(month)} resetDate={() => this.resetDate()} />
 
-                <Days onClick={(date) => this.changeDate(date)} date={date.format()} startDate={startDate} endDate={endDate} />
-            </div>
+                    <Days onClick={(date) => this.changeDate(date)}
+                          date={date.format()} startDate={startDate}
+                          endDate={endDate} />
+
+                </div>
+
+
         );
     }
 }

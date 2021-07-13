@@ -1,0 +1,26 @@
+.calendarBody{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-column-gap: 1.2rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  .labels{
+    font-family: Montserrat;
+    margin-bottom: 25px;
+    align-items: center;
+    width: 100%;
+    .label {
+      width: 14.28571%;
+      text-transform: uppercase;
+
+      font-weight: 500;
+      font-size: 16px;
+      color: #4F5368;
+    }
+  }
+  .dates{
+
+  }
+}

@@ -1,0 +1,32 @@
+.navigation {
+  margin-bottom: 40px;
+  color: #fff;
+  display: flex;
+  width: 100%;
+  .navigationWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    a {
+      text-align: center;
+      user-select: none;
+      display: block;
+      img {
+        cursor: pointer;
+        width: 6px;
+        height: 13px;
+      }
+    }
+    h3 {
+      font-family: Montserrat;
+      color: #111633;
+      margin: 0;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 20px;
+      user-select: none;
+    }
+  }
+}
